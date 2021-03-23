@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="validationRules.js"></script>
+  <script type="text/javascript" src="progressBar.js"></script>
+  
+  
+  <title>Progress Bar</title>
+
+</head>
+
+<body>
+
+<div class="form">
+  <div class="form-toggle"></div>
+  <div class="form-panel one">
+    <div class="form-header">
+      <h1>Crear Cuenta</h1>
+    </div>
+   <div id="progressBarImage">
+      <img id="imgProgressBar" src="img/0.jpg">
+    </div>
+    <div class="form-content">
+      <form id="form">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="Name" name="name" required="required" onChange="updateProgressBar(this)" validationRule="nameValidationRule"/>
+          <div id="msgValidationErrorName" class="msgValidationError">El nombre debe contener mínimo 2 caracteres</div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellidos</label>
+          <input type="text" id="LastName" name="lastName" required="required" onChange="updateProgressBar(this)" validationRule="lastNameValidationRule"/>
+          <div id="msgValidationErrorLastName" class="msgValidationError">Los apellidos deben contener mínimo 2 caracteres</div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="Email" name="email" required="required" onChange="updateProgressBar(this)"  validationRule="emailValidationRule"/>
+          <div id="msgValidationErrorEmail" class="msgValidationError">El email es inválido</div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="text" id="Phone" name="phone" required="required" onChange="updateProgressBar(this)" validationRule="phoneValidationRule"/>
+          <div id="msgValidationErrorPhone" class="msgValidationError">El número de teléfono debe contener 8 dígitos</div>
+        </div>
+        <div class="form-group">
+          <label for="address">Dirección</label>
+          <input type="text" id="Address" name="address" required="required" onChange="updateProgressBar(this)" validationRule="addressValidationRule"/>
+          <div id="msgValidationErrorAddress" class="msgValidationError">La dirección debe contener mínimo 2 caracteres</div>
+        </div>
+        <div class="form-group2">
+          <label for="addressNumber">Número exterior</label>
+          <input type="text" id="AddressNumber" name="addressNumber" required="required" onChange="updateProgressBar(this)"  validationRule="addressNumberValidationRule"/>
+          <div id="msgValidationErrorAddressNumber" class="msgValidationError">El número exterior debe contener 1 dígito numérico</div>
+          <label for="neighborhood">Colonia</label>
+          <input type="text" id="neighborhood" name="neighborhood" required="required" onChange="updateProgressBar(this)" validationRule="neighborhoodValidationRule"/>
+          <div id="msgValidationErrorNeighborhood" class="msgValidationError">La colonia debe contener mínimo 2 caracteres</div>
+        </div>
+        <div class="form-group">
+          <label for="postalCode">Código Postal</label>
+          <input type="text" id="PostalCode" name="postalCode" required="required" maxlength="5" onChange="updateProgressBar(this)" validationRule="postalCodeValidationRule"/>
+          <div id="msgValidationErrorPostalCode" class="msgValidationError">El código postal debe contener 5 caracteres numéricos</div>
+        </div>
+        <div class="form-group">
+          <label for="city">Ciudad</label>
+          <input type="text" id="City" name="city" required="required" onChange="updateProgressBar(this)"  validationRule="cityNameValidationRule"/>
+          <div id="msgValidationErrorCity" class="msgValidationError">La ciudad debe contener mínimo 4 caracteres</div>
+        </div>
+        <div class="form-group">
+          <label for="state">Estado</label>
+          <select id="State" name="state" onChange="updateProgressBar(this)"  validationRule="stateValidationRule">
+            <option value=".">Seleccione uno...</option>
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="CDMX">Ciudad de México</option>
+            <option value="Coahuila">Coahuila</option>
+            <option value="Colima">Colima</option>
+            <option value="Durango">Durango</option>
+            <option value="Estado de México">Estado de México</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Michoacán">Michoacán</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo León">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Querétaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosí">San Luis Potosí</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
+          </select>
+          <div id="msgValidationErrorState" class="msgValidationError">Favor seleccionar un estado de la república</div>
+        </div>
+          He leído y acepto los terminos y condiciones <input type="checkbox" id="accept" name="accept" required="required" onChange="updateProgressBar(this)"/>
+      <div class="form-group">
+        <button id="btnSubmit" onclick="submitForm()" disabled>Enviar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div id="div2" class="form-panel two">
+  </div>
+</div>
+
+</body>
+
+</html>
+ 
