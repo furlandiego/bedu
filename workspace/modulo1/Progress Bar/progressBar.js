@@ -11,14 +11,17 @@ function submitForm() {
         // sube a la sesión los datos registrados en el formulário
         sessionStorage.setItem("registerFormData", JSON.stringify(registerFormData));
 
+        // genera un ID unico de transacción
+        let transactionID = new Date().getTime() + "" + Math.floor (Math.random() * 1000);
+
         // redirecciona a la página de éxito
-        window.location.href = "success.html?dataValidation=passed";
+        window.location.href = "success.html?dataValidation=passed&transactionID=" + transactionID;
     }
 }
 
 /* Método que actualiza la barra de progreso
  */
-function updateProgressBar(input) {
+function updateProgressBar() {
    
     // calcula el progreso en el llenado del formulário
     var currentProgress = calculateProgress();
@@ -47,26 +50,26 @@ function calculateProgress(){
 
     var currentProgress = 0;
     var inputs = document.getElementById("form").elements;
-    
+
     // ejecuta la función que cuenta la cantidad de campos en el formulário
     var countFieldsLength = countFields(inputs);
     var increment = 100 / countFieldsLength;
 
     // Para cada elemento del formulário
-    for (var i = 0; i < inputs.length; i++) {
+    Array.from(inputs).forEach(function(currentValue, currentIndex) {
         // Si es tipo input o select y no está vacio
-        if ((inputs[i].type == "text" || inputs[i].type == "select-one") && inputs[i].value.trim().length > 0) {
+        if ((currentValue.type == "text" || currentValue.type == "select-one") && currentValue.value.trim().length > 0) {
             // valida si la entrada es válida y solo si es verdadero suma el progreso
-            if (validateField(inputs[i]))
+            if (validateField(currentValue))
                 currentProgress = currentProgress + increment;
             
-            var inputID = inputs[i].getAttribute("id");
-            var inputValue = inputs[i].value.trim();
+            var inputID = currentValue.getAttribute("id");
+            var inputValue = currentValue.value.trim();
         
             // popula el campo de entrada en la clase
             Reflect.set(registerFormData, inputID, inputValue);
         }
-    }
+    });
 
     return currentProgress;
 }
@@ -76,12 +79,8 @@ function countFields(inputs) {
     var count = 0;
     
     // Para cada elemento del formulário cuenta si es input o select
-    for (i = 0; i < inputs.length; i++) {
-        // Si es tipo input o select
-        if (inputs[i].type == "text" || inputs[i].type == "select-one") {
-            count++;
-        }
-    }
+    Array.from(inputs).forEach(
+            element => (element.type == "text" || element.type == "select-one") ? count++ : count);
 
     return count;
 }

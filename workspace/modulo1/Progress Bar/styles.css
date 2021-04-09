@@ -106,7 +106,7 @@ body {
     outline: none;
     display: block;
     background: rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 90%;
     border: 0;
     border-radius: 4px;
     box-sizing: border-box;
@@ -131,7 +131,7 @@ body {
     outline: none;
     display: block;
     background: rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 90%;
     border: 0;
     border-radius: 4px;
     box-sizing: border-box;
@@ -145,7 +145,7 @@ body {
 }
 .form-group a {
     outline: none;
-    width: 100%;
+    width: 81.5%;
     background: lightgray;
     border: 0;
     border-radius: 4px;

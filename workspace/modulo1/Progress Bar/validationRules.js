@@ -12,7 +12,7 @@ var validationRules = {
         "ErrorMessage" : "msgValidationErrorEmail"
     },
     "phoneValidationRule": {   
-        "validationRule" : "\\d{8}",
+        "validationRule" : "\\d{10}",
         "ErrorMessage" : "msgValidationErrorPhone"
     },
     "addressValidationRule" : {

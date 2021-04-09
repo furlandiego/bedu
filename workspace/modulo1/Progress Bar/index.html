@@ -31,52 +31,52 @@
         </div>
         <div class="form-group">
           <label for="name">Nombre</label>
-          <input type="text" id="name" name="name" required="required" onChange="updateProgressBar(this)" validationRule="nameValidationRule"/>
+          <input type="text" id="name" name="name" required="required" onChange="updateProgressBar()" maxlength="30" validationRule="nameValidationRule"/>
           <div id="msgValidationErrorName" class="msgValidationError">El nombre debe contener mínimo 2 caracteres</div>
         </div>
         <div class="form-group">
           <label for="lastName">Apellidos</label>
-          <input type="text" id="lastName" name="lastName" required="required" onChange="updateProgressBar(this)" validationRule="lastNameValidationRule"/>
+          <input type="text" id="lastName" name="lastName" required="required" onChange="updateProgressBar()" maxlength="70" validationRule="lastNameValidationRule"/>
           <div id="msgValidationErrorLastName" class="msgValidationError">Los apellidos deben contener mínimo 2 caracteres</div>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" id="email" name="email" required="required" onChange="updateProgressBar(this)"  validationRule="emailValidationRule"/>
+          <input type="text" id="email" name="email" required="required" onChange="updateProgressBar()" maxlength="50" validationRule="emailValidationRule"/>
           <div id="msgValidationErrorEmail" class="msgValidationError">El email es inválido</div>
         </div>
         <div class="form-group">
           <label for="phone">Teléfono</label>
-          <input type="text" id="phone" name="phone" required="required" onChange="updateProgressBar(this)" validationRule="phoneValidationRule"/>
-          <div id="msgValidationErrorPhone" class="msgValidationError">El número de teléfono debe contener 8 dígitos</div>
+          <input type="text" id="phone" name="phone" required="required" onChange="updateProgressBar()" maxlength="10" validationRule="phoneValidationRule"/>
+          <div id="msgValidationErrorPhone" class="msgValidationError">El número de teléfono debe contener 10 dígitos</div>
         </div>
         <div class="form-group">
           <label for="address">Dirección</label>
-          <input type="text" id="address" name="address" required="required" onChange="updateProgressBar(this)" validationRule="addressValidationRule"/>
+          <input type="text" id="address" name="address" required="required" onChange="updateProgressBar()" maxlength="70" validationRule="addressValidationRule"/>
           <div id="msgValidationErrorAddress" class="msgValidationError">La dirección debe contener mínimo 2 caracteres</div>
         </div>
         <div class="form-group">
           <label for="addressNumber">Número exterior</label>
-          <input type="text" id="addressNumber" name="addressNumber" required="required" onChange="updateProgressBar(this)"  validationRule="addressNumberValidationRule"/>
+          <input type="text" id="addressNumber" name="addressNumber" required="required" onChange="updateProgressBar()" maxlength="6" validationRule="addressNumberValidationRule"/>
           <div id="msgValidationErrorAddressNumber" class="msgValidationError">El número exterior debe contener 1 dígito numérico</div>
         </div>
         <div class="form-group">
           <label for="neighborhood">Colonia</label>
-          <input type="text" id="neighborhood" name="neighborhood" required="required" onChange="updateProgressBar(this)" validationRule="neighborhoodValidationRule"/>
+          <input type="text" id="neighborhood" name="neighborhood" required="required" onChange="updateProgressBar()" maxlength="50" validationRule="neighborhoodValidationRule"/>
           <div id="msgValidationErrorNeighborhood" class="msgValidationError">La colonia debe contener mínimo 2 caracteres</div>
         </div>
         <div class="form-group">
           <label for="postalCode">Código Postal</label>
-          <input type="text" id="postalCode" name="postalCode" required="required" maxlength="5" onChange="updateProgressBar(this)" validationRule="postalCodeValidationRule"/>
+          <input type="text" id="postalCode" name="postalCode" required="required" onChange="updateProgressBar()" maxlength="5" validationRule="postalCodeValidationRule"/>
           <div id="msgValidationErrorPostalCode" class="msgValidationError">El código postal debe contener 5 caracteres numéricos</div>
         </div>
         <div class="form-group">
           <label for="city">Ciudad</label>
-          <input type="text" id="city" name="city" required="required" onChange="updateProgressBar(this)"  validationRule="cityNameValidationRule"/>
+          <input type="text" id="city" name="city" required="required" onChange="updateProgressBar()" maxlength="40" validationRule="cityNameValidationRule"/>
           <div id="msgValidationErrorCity" class="msgValidationError">La ciudad debe contener mínimo 4 caracteres</div>
         </div>
         <div class="form-group">
           <label for="state">Estado</label>
-          <select id="state" name="state" onChange="updateProgressBar(this)"  validationRule="stateValidationRule">
+          <select id="state" name="state" onChange="updateProgressBar()"  validationRule="stateValidationRule">
             <option value="" disabled selected value>Seleccione uno...</option>
             <option value="Aguascalientes">Aguascalientes</option>
             <option value="Baja California">Baja California</option>
@@ -113,7 +113,7 @@
           </select>
           <div id="msgValidationErrorState" class="msgValidationError">Favor seleccionar un estado de la república</div>
         </div>
-          He leído y acepto los terminos y condiciones <input type="checkbox" id="accept" name="accept" required="required" onChange="updateProgressBar(this)"/>
+          He leído y acepto los terminos y condiciones <input type="checkbox" id="accept" name="accept" required="required" onChange="updateProgressBar()"/>
       <div class="form-group">
         <a id="btnSubmit" onclick="submitForm()" class="disabled">Enviar</a>
       </div>
