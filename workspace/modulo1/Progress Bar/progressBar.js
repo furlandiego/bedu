@@ -7,16 +7,28 @@ function init() {
 /* Método que es ejecutado cuando el usuario terminar de llenar el formulário y envia los datos
  */
 function submitForm() {
-    if (confirm("Estás seguro que deseas enviar los datos?")) {
-        // sube a la sesión los datos registrados en el formulário
-        sessionStorage.setItem("registerFormData", JSON.stringify(registerFormData));
 
-        // genera un ID unico de transacción
-        let transactionID = new Date().getTime() + String(Math.floor (Math.random() * 1000));
+    //abre un alert que le pregunta al usuario si desea enviar los datos
+    Swal.fire({
+        title: "¿Estás seguro que deseas enviar los datos?",
+        showCancelButton: true,
+        imageUrl: "img/send.png",
+        imageWidth: 256,
+        imageHeight: 256,
+        confirmButtonText: "Enviar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+            // sube a la sesión los datos registrados en el formulário
+            sessionStorage.setItem("registerFormData", JSON.stringify(registerFormData));
 
-        // redirecciona a la página de éxito
-        window.location.href = "success.html?dataValidation=passed&transactionID=" + transactionID;
-    }
+            // genera un ID unico de transacción
+            let transactionID = new Date().getTime() + String(Math.floor (Math.random() * 1000));
+
+            // redirecciona a la página de éxito
+            window.location.href = "success.html?dataValidation=passed&transactionID=" + transactionID;
+
+        }
+      });
 }
 
 /* Método que actualiza la barra de progreso
@@ -29,15 +41,15 @@ function updateProgressBar() {
     // actualiza la imagen de progreso basado en el porcentaje de avance de llenado del formulário
     document.getElementById("imgProgressBar").src = "img/" + String(currentProgress) + ".jpg";
 
+    var btnSubmit = document.getElementById("btnSubmit");
+
     // Habilita el botón de submit si todo el formulário ya se haya llenado y el usuario haya aceptado las condiciones
     if (currentProgress == 100 && document.getElementById("accept").checked) {
-        var btnSubmit = document.getElementById("btnSubmit");
         btnSubmit.style.background = "#4285F4";
         btnSubmit.style.pointerEvents = "visible";
         btnSubmit.style.cursor = "pointer";
     } else {
         // si no cumple, vuelve a deshabilitar el botón si en algún momento haya sido habilitado
-        var btnSubmit = document.getElementById("btnSubmit");
         btnSubmit.style.background = "#FFFFFF";
         btnSubmit.style.pointerEvents = "none";
         btnSubmit.style.cursor = "default";
