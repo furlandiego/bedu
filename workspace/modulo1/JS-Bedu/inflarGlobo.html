@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>Inflar un globo</title>
+  </head>
+  <body>
+
+    <p id="balloon" style="font-size: 20px; text-align:center;">🎈</p>
+    
+
+    <script>
+        let balloon = document.getElementById("balloon");
+        let balloonSize = 20;
+        let lastKey = null;
+
+        window.addEventListener("keydown", function(event) {
+            if (balloonSize >= 80) {
+                balloon.textContent = "💥";
+                window.removeEventListener("keydown", function(){});
+            }
+            else if (lastKey && event.key === "ArrowUp") {
+                balloonSize = balloonSize * 1.1;
+                balloon.style.fontSize = balloonSize + "px";
+            }
+            else if (lastKey && event.key === "ArrowDown") {
+                balloonSize = balloonSize * 0.9;
+                balloon.style.fontSize = balloonSize + "px";
+            }
+            lastKey = event.ctrlKey;
+        });
+
+    
+    </script>
+  </body>
+</html>

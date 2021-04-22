@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <p>No hay event handler</p>
+
+    <button>Click Me</button>
+
+    <p>No hay event handler</p>
+    <script>
+        var button = document.querySelector('button');
+
+        function unaVez() {
+            console.log("Click una vez");
+            button.removeEventListener("click", unaVez);
+        }
+
+        button.addEventListener("click", unaVez);
+
+    </script>
+  </body>
+</html>

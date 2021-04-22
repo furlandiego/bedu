@@ -1,0 +1,27 @@
+<html>
+ <head>
+ </head>
+ <body>
+     <div id="timer"></div>
+
+<script>
+    let seconds = 6;
+    let timer = document.getElementById("timer");
+    
+    setInterval(secondsCountdown, 1000);
+    timer.textContent = "Tiempo faltante: " + seconds + " segundos";
+
+    function secondsCountdown() {
+
+        if (seconds === 0) {
+            timer.textContent = "Tiempo agotado";    
+            return;
+        }
+
+        seconds--;
+        timer.textContent = "Tiempo faltante: " + seconds + " segundos";
+    }
+</script>
+
+ </body>
+</html>
