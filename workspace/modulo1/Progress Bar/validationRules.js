@@ -1,4 +1,4 @@
-var validationRules = {
+let validationRules = {
     "nameValidationRule": {
         "validationRule" : "\\w{2}",
         "ErrorMessage" : "msgValidationErrorName"

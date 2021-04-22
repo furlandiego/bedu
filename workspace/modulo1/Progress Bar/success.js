@@ -1,24 +1,24 @@
 function init() {
     
-    var queryString = window.location.search;
+    let queryString = window.location.search;
 
-    var urlParams = new URLSearchParams(queryString);
-    var dataValidationFlag = urlParams.get("dataValidation");
-    var transactionID = urlParams.get("transactionID");
+    let urlParams = new URLSearchParams(queryString);
+    let dataValidationFlag = urlParams.get("dataValidation");
+    let transactionID = urlParams.get("transactionID");
 
     // si viene la bandera que el formulário fue validado por completo y el transactionID a 16 digitos
     if (dataValidationFlag === "passed" && transactionID.length == 16) {
 
         // obtiene de la sesión el objeto con los datos que han sido llenados en el formulário
-        var registerFormData = JSON.parse(sessionStorage.getItem("registerFormData"));
+        let registerFormData = JSON.parse(sessionStorage.getItem("registerFormData"));
        
         // obtiene los campos del formulário
-        var inputs = document.getElementsByTagName("div");
+        let inputs = document.getElementsByTagName("div");
 
         // para cada campo que se debe llenar en la pantalla
         Array.from(inputs).forEach(function(currentValue, currentIndex) {
             
-            var inputID = currentValue.getAttribute("id");
+            let inputID = currentValue.getAttribute("id");
 
             // si es un campo div que tiene el dato que corresponde al campo
             if (inputID != null && currentValue.tagName == "DIV") {
