@@ -1,6 +1,6 @@
 function init() {
     
-var queryString = window.location.search;
+    var queryString = window.location.search;
 
     var urlParams = new URLSearchParams(queryString);
     var dataValidationFlag = urlParams.get("dataValidation");

@@ -12,7 +12,7 @@ function submitForm() {
         sessionStorage.setItem("registerFormData", JSON.stringify(registerFormData));
 
         // genera un ID unico de transacción
-        let transactionID = new Date().getTime() + "" + Math.floor (Math.random() * 1000);
+        let transactionID = new Date().getTime() + String(Math.floor (Math.random() * 1000));
 
         // redirecciona a la página de éxito
         window.location.href = "success.html?dataValidation=passed&transactionID=" + transactionID;
