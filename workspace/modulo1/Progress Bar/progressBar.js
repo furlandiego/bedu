@@ -16,7 +16,7 @@ function submitForm() {
         imageWidth: 256,
         imageHeight: 256,
         confirmButtonText: "Enviar",
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
             // sube a la sesión los datos registrados en el formulário
             sessionStorage.setItem("registerFormData", JSON.stringify(registerFormData));
@@ -26,9 +26,8 @@ function submitForm() {
 
             // redirecciona a la página de éxito
             window.location.href = "success.html?dataValidation=passed&transactionID=" + transactionID;
-
         }
-      });
+    });
 }
 
 /* Método que actualiza la barra de progreso
@@ -68,14 +67,14 @@ function calculateProgress(){
     Array.from(inputs).forEach(function(currentValue, currentIndex) {
         // Si es tipo input o select y no está vacio
         if ((currentValue.type == "text" || currentValue.type == "select-one") && currentValue.value.trim().length > 0) {
-            // valida si la entrada es válida y solo si es verdadero suma el progreso
+            // valida si la entrada es válida y si es verdadero incrementa el progreso
             if (validateField(currentValue))
                 currentProgress = currentProgress + increment;
             
             let inputID = currentValue.getAttribute("id");
             let inputValue = currentValue.value.trim();
         
-            // popula el campo de entrada en la clase
+            // setea el campo de entrada en la clase
             Reflect.set(registerFormData, inputID, inputValue);
         }
     });
